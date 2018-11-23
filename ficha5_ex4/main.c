@@ -9,14 +9,20 @@
 #define minmin 00
 #define minsec 00
 
+int hora, min, seg;
+
+int le_num();
+void converte_em_segundo();
+
 int main()
 {
     le_num();
+    converte_em_segundo();
     return 0;
 }
 
 int le_num (void){
-    int hora, min, seg;
+
     do{
         printf("Insere a hora: ");
         scanf("%i", &hora);
@@ -31,10 +37,15 @@ int le_num (void){
     }while(seg<minsec || seg>maxsec);
 
     printf("\n\t --------", hora, min, seg);
-    printf("\n\t|%i:%i:%i|", hora, min, seg);
+    printf("\n\t|%02i:%02i:%02i|", hora, min, seg);
     printf("\n\t --------", hora, min, seg);
+
+    return hora, min, seg;
 }
 
-int converte_em_segundo (int hora, int minuto, int segundo){
+void converte_em_segundo (){
+    int time_in_sec;
+    time_in_sec=seg+(min*60)+(hora*60*60);
+    printf("\nHora (%02dH:%02dM:%02dS) em segundos =  %d", hora, min, seg, time_in_sec);
 
 }
